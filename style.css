@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight&display=swap");
+
+:root {
+  --max-width: 1200px;
+  --token-ad9b4115-c8bf-4757-af13-005f7e571fb7: rgb(255, 255, 255);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  /* cursor: none; */
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: var(--max-width);
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cursor {
+  transition: cubic-bezier(0.19, 1, 0.22, 1) 0.9s;
+  position: fixed;
+  /* pointer-events: none; */
+}
+
+.lines {
+  position: fixed;
+  top: 0;
+  /* transform: translate(-50%); */
+  /* max-width: var(--max-width); */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(
+    90deg,
+    var(--token-ad9b4115-c8bf-4757-af13-005f7e571fb7, rgb(0, 0, 0))
+      /* {"name":"Foreground"} */ 1px,
+    transparent 1px
+  ); /* Replace with the correct path */
+  background-size: cover;
+  opacity: 0.2;
+  z-index: -2;
+}
+
+.lines:nth-child(1) {
+  left: 25%;
+}
+.lines:nth-child(2) {
+  left: 50%;
+}
+
+.lines:nth-child(3) {
+  left: 75%;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px 0;
+  font-family: sans-serif;
+
+  /* height: 100vh; */
+}
+
+nav > div {
+  margin-left: 15px;
+  padding: 10px 0;
+  font-size: 25px;
+}
+/* 
+.new_section {
+  color: white;
+  min-height: 100vh;
+  background-color: rgb(17, 16, 16);
+} */
+
+.heading {
+  display: flex;
+
+  /* color: white; */
+  /* margin-top: 30px; */
+}
+
+.heading h1 {
+  font-family: "Inter Tight", sans-serif;
+  text-transform: uppercase;
+  font-size: 250px;
+  opacity: 0;
+  /* pointer-events: none; */
+}
+
+.studio_parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 1px solid gray;
+
+  border-radius: 20px;
+  z-index: 2;
+  cursor: default;
+}
+
+.heading {
+  font-family: sans-serif;
+  font-weight: 200;
+  font-size: 30px;
+  padding: 5px 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.new_section > h3 {
+  max-width: 600px;
+  text-align: center;
+  margin: auto;
+  font-family: "Inter Tight", sans-serif;
+  letter-spacing: 2px;
+  line-height: 35px;
+  font-size: 25px;
+  font-weight: 400;
+  /* opacity: 0.6; */
+}
