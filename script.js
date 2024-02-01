@@ -20,7 +20,7 @@ cursor.style.width = "20px";
 cursor.style.height = "20px";
 cursor.style.borderRadius = "10px";
 cursor.style.opacity = "0";
-cursor.style.position = "absolute";
+cursor.style.position = "fixed";
 
 const body = document.querySelector("body");
 const nav = document.querySelectorAll("nav div");
@@ -204,11 +204,36 @@ const scrollTimeline = gsap.timeline({
     start: "20% 120%", // Adjust the start position as needed
     end: "40% center", // Adjust the end position as needed
     scrub: true, // Smoothly updates animation as you scroll
-    markers: true,
+    // markers: true,
   },
 });
 
 scrollTimeline.from(".new_section h3", {
   opacity: 0,
   duration: 1,
+});
+
+var video = document.querySelector(".video");
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Define the video_timeline
+  var video_timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".new_section",
+      start: "70% center", // Adjust the start position as needed
+      end: "150% top", // Adjust the end position as needed
+      scrub: 5, // Smoothly updates animation as you scroll
+      markers: true,
+
+      pin: true,
+      // pinSpacing: false, // Add this line
+      duration: 0.5,
+    },
+  });
+
+  // Use "to" to animate the video size
+  video_timeline.to(".video", {
+    width: "100vw",
+    height: "100vh",
+  });
 });

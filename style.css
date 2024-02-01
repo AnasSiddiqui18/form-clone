@@ -27,8 +27,7 @@ body {
 
 .cursor {
   transition: cubic-bezier(0.19, 1, 0.22, 1) 0.9s;
-  position: fixed;
-  /* pointer-events: none; */
+  z-index: 1;
 }
 
 .lines {
@@ -75,12 +74,6 @@ nav > div {
   padding: 10px 0;
   font-size: 25px;
 }
-/* 
-.new_section {
-  color: white;
-  min-height: 100vh;
-  background-color: rgb(17, 16, 16);
-} */
 
 .heading {
   display: flex;
@@ -103,7 +96,6 @@ nav > div {
   align-items: center;
   color: white;
   border: 1px solid gray;
-
   border-radius: 20px;
   z-index: 2;
   cursor: default;
@@ -130,4 +122,23 @@ nav > div {
   font-size: 25px;
   font-weight: 400;
   /* opacity: 0.6; */
+}
+
+.video_parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  border: 2px solid red;
+  /* margin-bottom: 200px; */
+  /* background-color: lightblue; */
+  /* background-color: royalblue; */
+}
+
+.video {
+  width: 50vw;
+  height: 50vh;
+  object-fit: cover;
+  z-index: -1;
+  object-position: top;
 }
