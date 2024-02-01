@@ -219,15 +219,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Define the video_timeline
   var video_timeline = gsap.timeline({
     scrollTrigger: {
-      trigger: ".new_section",
-      start: "70% center", // Adjust the start position as needed
-      end: "150% top", // Adjust the end position as needed
-      scrub: 5, // Smoothly updates animation as you scroll
+      trigger: ".video_parent",
+      start: "50% center",
+      end: "100% top",
+      scrub: 5,
       markers: true,
-
       pin: true,
-      // pinSpacing: false, // Add this line
-      duration: 0.5,
+      duration: 0.2,
     },
   });
 
