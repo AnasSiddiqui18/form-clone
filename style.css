@@ -125,6 +125,7 @@ nav > div {
 }
 
 .video_parent {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,6 +140,23 @@ nav > div {
   width: 50vw;
   height: 50vh;
   object-fit: cover;
-  z-index: -1;
+  z-index: -3;
   object-position: top;
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+.text h2 {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 180px;
+  letter-spacing: 6px;
+  text-shadow: 5px 5px 10px black;
+  text-transform: uppercase;
 }

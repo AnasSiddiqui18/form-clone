@@ -15,12 +15,15 @@ tl.fromTo(
 );
 
 let cursor = document.querySelector(".cursor");
+let client = { x: 0, y: 0 };
+
 cursor.style.backgroundColor = "white";
 cursor.style.width = "20px";
 cursor.style.height = "20px";
 cursor.style.borderRadius = "10px";
 cursor.style.opacity = "0";
 cursor.style.position = "fixed";
+cursor.style.transform = `translate(${client.x}px ,${client.y}px)`;
 
 const body = document.querySelector("body");
 const nav = document.querySelectorAll("nav div");
@@ -161,11 +164,12 @@ nav.forEach((item) => {
 });
 
 document.addEventListener("mousemove", function (e) {
-  const { clientX, clientY } = e;
+  client.x = e.clientX;
+  client.y = e.clientY;
 
   console.log("event", e);
 
-  cursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+  cursor.style.transform = `translate(${client.x}px, ${client.y}px)`;
   cursor.style.opacity = "1";
 });
 
@@ -217,7 +221,7 @@ var video = document.querySelector(".video");
 
 document.addEventListener("DOMContentLoaded", function () {
   // Define the video_timeline
-  var video_timeline = gsap.timeline({
+  var master_timeline = gsap.timeline({
     scrollTrigger: {
       trigger: ".video_parent",
       start: "50% center",
@@ -229,9 +233,26 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  // Use "to" to animate the video size
-  video_timeline.to(".video", {
+  // Animation for video size
+  master_timeline.to(".video", {
     width: "100vw",
     height: "100vh",
   });
+
+  // Animation for text position
+  master_timeline.from(
+    ".left_text",
+    {
+      x: "-200%",
+    },
+    0
+  ); // Start both animations at the same time (0 seconds into the timeline)
+
+  master_timeline.from(
+    ".right_text",
+    {
+      x: "250%",
+    },
+    0
+  );
 });
